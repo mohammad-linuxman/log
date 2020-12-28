@@ -1,0 +1,81 @@
+
+ error_name=input('error_name: ')
+file_name=input('file_name: ')
+a_file = open(file_name, "r")
+i_count=0
+list_of_lists = []
+for line in a_file:
+#  if '2' in  line:
+   stripped_line = line.strip()
+   line_list = stripped_line.split()
+   list_of_lists.append(line_list)
+   i_count=i_count+1
+
+a_file.close()
+print(i_count)
+#print(list_of_lists)
+
+#######################################
+dic = {}
+for i in range(0, 21):
+    dic[i] = []
+#print(dic)
+
+x=[]
+c=0
+
+for ali in range(1 ,i_count):
+   if 'nioProcessorThread:' in  list_of_lists[ali]:
+       c=c+1
+       #print  (list_of_lists[ali])
+       dic[c].append(list_of_lists[ali])
+       #dic[c].append(list_of_lists[ali])
+
+   #if  'nioProcessorThread:' not in  list_of_lists[ali]:
+   else:  
+       dic[c].append(list_of_lists[ali])
+#############################################     
+#print(dic[2][3])
+###############################################
+
+#xxx=', '.join(dic[2][0])
+#if 'nio' in tmp:
+#print(xxx)
+s = len(dic[2])
+
+####################################################
+hasan=[]
+oklist=[]
+
+for bazn in range (0 , c+1):
+     lenlist=0
+     pp=1
+     for  baznn in range(0 , len(dic[bazn])):
+        tmp=', '.join(dic[bazn][lenlist])
+        lenlist=lenlist+1
+        if error_name in tmp:
+            #hasan.append(tmp)
+            pp=2
+            #print(pp)
+     if pp == 1 :
+       oklist.append(bazn)
+
+print(oklist)
+     #if pp == 2:
+     #   pass
+     #else:
+     # print('nokey')
+
+#######################################
+for final in oklist:
+    #print(dic[final])
+    #print('\n'  +  '\n' + '\n' + '\n')
+    lenlist=0
+    for  nnn in range(0 , len(dic[final])):
+        tmp=', '.join(dic[final][lenlist])
+        lenlist=lenlist+1
+        print(tmp)
+    print('\n'  +  '\n' + '\n' + '\n')
+
+
+
